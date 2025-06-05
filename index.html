@@ -1,0 +1,215 @@
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de TBATOU Rayane - Développeur passionné par la création de solutions innovantes">
+    <title>Portfolio | TBATOU Rayane</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/popup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="navigation">
+            <div class="logo">
+                <a href="#" class="lien-nav">Portfolio</a>
+            </div>
+            <ul class="menu-navigation">
+                <li><a href="#accueil" class="lien-nav">Accueil</a></li>
+                <li><a href="#apropos" class="lien-nav">À Propos</a></li>
+                <li><a href="#competences" class="lien-nav">Compétences</a></li>
+                <li><a href="#projets" class="lien-nav">Projets</a></li>
+                <li><a href="#contact" class="lien-nav">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="accueil" class="banniere">
+        <div class="contenu-banniere">
+            <h1>TBATOU Rayane</h1>
+            <p>Créatif. Innovant. Déterminé.</p>
+            <a href="#contact" class="bouton-contact">Me Contacter</a>
+        </div>
+    </section>
+
+    <section id="apropos" class="section">
+        <h2>À Propos de Moi</h2>
+        <div class="contenu-apropos">
+            <div class="texte-apropos">
+                <p>Étudiant passionné en développement, je combine créativité et expertise technique pour créer des solutions innovantes.</p>
+                <p>Mon objectif est de contribuer au monde du développement tout en continuant d'apprendre et d'évoluer.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="competences" class="section">
+    <h2>Compétences</h2>
+    <div class="grille-competences">
+        <div class="carte-competence">
+            <i class="fab fa-html5" style="color:#E34F26; font-size: 3em;"></i>
+            <h3>HTML5</h3>
+            <p>Structuration de pages web</p>
+        </div>
+        <div class="carte-competence">
+            <i class="fab fa-css3-alt" style="color:#1572B6; font-size: 3em;"></i>
+            <h3>CSS3</h3>
+            <p>Stylisation et animations</p>
+        </div>
+        <div class="carte-competence">
+            <i class="fab fa-js" style="color:#F7DF1E; font-size: 3em;"></i>
+            <h3>JavaScript</h3>
+            <p>Interactivité et logique front-end</p>
+        </div>
+        <div class="carte-competence">
+            <i class="fab fa-python" style="color:#3776AB; font-size: 3em;"></i>
+            <h3>Python</h3>
+            <p>Développement back-end & scripts</p>
+        </div>
+        <div class="carte-competence">
+            <i class="fas fa-database" style="color:#003B57; font-size: 3em;"></i>
+            <h3>SQL</h3>
+            <p>Gestion de bases de données</p>
+        </div>
+        <div class="carte-competence">
+            <i class="fab fa-java" style="color:#EA2D2E; font-size: 3em;"></i>
+            <h3>Java</h3>
+            <p>Programmation orientée objet</p>
+        </div>
+    </div>
+</section>
+
+    <section id="projets" class="section">
+        <h2>Mes Projets</h2>
+        <div class="grille-projets">
+            <!-- Projet Principal - Safe Race -->
+            <div class="carte-projet principal">
+                <div class="badge-principal">Projet Principal</div>
+                <div class="projet-contenu">
+                    <h3>Safe Race</h3>
+                    <p class="projet-resume">
+                        Application de gestion complète pour l’organisation et la sécurité des Grands Prix. 
+                        Gestion des plannings, équipes, logistique et analyse des performances.
+                    </p>
+                    <div class="projet-tags">
+                    <span class="tag">Java</span>
+                        <span class="tag">JavaFX</span>
+                        <span class="tag">SQL</span>
+                    </div>
+                    <div class="projet-actions">
+                        <a href="#popup-saferace" class="lien-projet">Voir le projet</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Contact</h2>
+        <div class="contenu-contact">
+            <div class="contact-info">
+                <div class="liens-sociaux">
+                    <a href="https://github.com/Rayou-24" class="lien-social" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://fr.linkedin.com/in/rayane-tbatou" class="lien-social" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:rayane.tbatou01@gmail.com" class="lien-social">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Portfolio Développeur. Tous droits réservés.</p>
+    </footer>
+    <!-- Popup pour afficher les détails du projet (sans JavaScript) -->
+    <div id="popup-saferace" class="popup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h2>Safe Race</h2>
+                <a href="#" class="popup-close">&times;</a>
+            </div>
+            <div class="popup-body">
+                <div class="projet-detail">
+                    <p class="projet-soustitre">Solution complète pour l'organisation des Grands Prix</p>
+                    
+                    <div class="projet-info">
+                        <div class="projet-description">
+                            <h2>Description du Projet</h2>
+                            <p>Safe Race est une application dédiée à la gestion complète des Grands Prix. Conçue pour les organisateurs d'événements, les équipes et les bénévoles, cette solution permet de coordonner tous les aspects d'un week-end de Grand Prix, de la logistique à la communication en temps réel.</p>
+                        </div>
+
+                        <div class="projet-objectifs">
+                            <h2>Objectifs Principaux</h2>
+                            <ul>
+                                <li>Automatiser la gestion des plannings et des ressources</li>
+                                <li>Faciliter la communication entre les différents acteurs</li>
+                                <li>Fournir des outils d'analyse des performances</li>
+                                <li>Améliorer l'expérience des spectateurs et des équipes</li>
+                            </ul>
+                        </div>
+
+                        <div class="projet-fonctionnalites">
+                            <h2>Fonctionnalités Clés</h2>
+                            <div class="fonctionnalite-grille">
+                                <div class="fonctionnalite">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <h3>Gestion des Événements</h3>
+                                    <p>Planification détaillée de tous les événements du week-end de course.</p>
+                                </div>
+                                <div class="fonctionnalite">
+                                    <i class="fas fa-users"></i>
+                                    <h3>Gestion des Équipes</h3>
+                                    <p>Suivi des équipes, pilotes et personnels techniques.</p>
+                                </div>
+                                <div class="fonctionnalite">
+                                    <i class="fas fa-map-marked-alt"></i>
+                                    <h3>Logistique</h3>
+                                    <p>Gestion des stands, des zones techniques et des accréditations.</p>
+                                </div>
+                                <div class="fonctionnalite">
+                                    <i class="fas fa-tv"></i>
+                                    <h3>Médias</h3>
+                                    <p>Diffusion d'informations en temps réel et gestion des médias.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="projet-technologies">
+                            <h2>Technologies Utilisées</h2>
+                            <div class="technologies-list">
+                                <div class="technologie">
+                                    <i class="fab fa-java"></i>
+                                    <span>Java 17</span>
+                                </div>
+                                <div class="technologie">
+                                    <i class="fas fa-window-maximize"></i>
+                                    <span>JavaFX</span>
+                                </div>
+                                <div class="technologie">
+                                    <i class="fas fa-database"></i>
+                                    <span>PostgreSQL</span>
+                                </div>
+                                <div class="technologie">
+                                    <i class="fas fa-sitemap"></i>
+                                    <span>Architecture MVC</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts JavaScript -->
+    <script src="js/animations.js"></script>
+</body>
+</html>
