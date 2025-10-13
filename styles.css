@@ -56,6 +56,29 @@ body {
     overflow-x: hidden;
 }
 
+/* Animated subtle gradient background using a pseudo element for performance */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background: linear-gradient(120deg, rgba(255,62,85,0.06), rgba(255,126,179,0.04), rgba(44,83,100,0.06));
+    background-size: 600% 600%;
+    animation: bgMove 18s ease infinite;
+    pointer-events: none;
+}
+
+@keyframes bgMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    body::before { animation: none; }
+}
+
 .texte-apropos {
     text-align: center;
     animation: slideUp 1s ease forwards;
@@ -206,6 +229,16 @@ nav.scrolled {
 }
 
 .lien-nav:hover::after {
+    width: 100%;
+}
+
+/* Scrollspy active state */
+.lien-nav.active {
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+.lien-nav.active::after {
     width: 100%;
 }
 
@@ -672,6 +705,114 @@ nav.scrolled {
     text-align: center;
 }
 
+/* Styles pour le formulaire de contact */
+.contact-grid {
+    display: grid;
+    /* 3 columns: flexible sides + central column for the form */
+    grid-template-columns: 1fr minmax(0, 700px) 1fr;
+    gap: 2rem;
+    align-items: start;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.contact-info {
+    /* Placer les réseaux sous le formulaire en occupant toute la largeur */
+    text-align: center;
+    grid-column: 1 / -1;
+    margin-top: 1rem;
+}
+
+.contact-form {
+    background: linear-gradient(145deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.04);
+    /* Centrer et placer dans la colonne centrale */
+    max-width: 700px;
+    margin: 0 auto;
+    grid-column: 2;
+}
+
+.contact-form h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: rgba(0,0,0,0.4);
+    color: var(--text-color);
+    resize: vertical;
+    transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    transform: translateY(-2px);
+}
+
+.field-error {
+    color: #ffb4b4;
+    font-size: 0.85rem;
+    margin-top: 0.35rem;
+    min-height: 1.1em;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.btn-submit {
+    padding: 0.7rem 1.2rem;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-submit:hover {
+    background: var(--accent-color-hover);
+    transform: translateY(-3px);
+}
+
+.form-status {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.form-status {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* classes d'état pour le statut du formulaire */
+.form-status.success { color: lightgreen; }
+.form-status.error { color: #ffb4b4; }
+
 .liens-sociaux {
     display: flex;
     justify-content: center;
@@ -713,5 +854,16 @@ footer {
     
     .section {
         padding: 3rem 1rem;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* On small screens the form should occupy full width and networks stay below */
+    .contact-form {
+        grid-column: 1;
+        max-width: 100%;
+        margin: 0 auto;
     }
 }
