@@ -48,4 +48,28 @@ document.addEventListener('DOMContentLoaded', function() {
     sectionMap.forEach((_, section) => spyObserver.observe(section));
 
     // Les hover des icônes sont gérés en CSS (.carte-competence:hover i)
+    // Empêcher le lien de fermeture de popup (href="#") de scroller en haut de la page.
+    // On retire le fragment de l'URL via history.replaceState pour fermer la popup sans défilement.
+    document.querySelectorAll('.popup-close').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            const href = btn.getAttribute('href');
+            // Si le href est exactement '#', on empêche le comportement par défaut et on supprime le hash
+            if (href === '#') {
+                e.preventDefault();
+                history.replaceState(null, '', window.location.pathname + window.location.search);
+            } else {
+                // Sinon on laisse la navigation (ex: href="#projets") fermer la popup via :target
+                // Mais on veut s'assurer que le focus va vers la section projets sans scroller de manière brusque.
+                // On laisse le navigateur naviguer naturellement vers l'ancre.
+            }
+
+            // Pour l'accessibilité: tenter de déplacer le focus vers la section 'projets' (prévenir le scroll)
+            const projects = document.getElementById('projets');
+            if (projects) {
+                if (!projects.hasAttribute('tabindex')) projects.setAttribute('tabindex', '-1');
+                // focus différé pour laisser la navigation terminer
+                setTimeout(() => projects.focus({ preventScroll: true }), 10);
+            }
+        });
+    });
 });

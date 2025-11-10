@@ -49,7 +49,7 @@
                     <p><strong>Nom :</strong> TBATOU</p>
                     <p><strong>Prénom :</strong> Rayane</p>
                     <p><strong>Métier visé :</strong> Développeur Web</p>
-                    <p><strong>Diplômes :</strong> BAC Technologique spécialités STI2D opions SIN</p>
+                    <p><strong>Diplômes :</strong> BAC Technologique spécialités STI2D options SIN</p>
                     <p class="presentation-bio">Étudiant en développement, je me passionne pour la création d'interfaces soignées et d'architectures efficaces. J'aime apprendre de nouvelles technologies et travailler en équipe sur des projets réels.</p>
                 </div>
             </div>
@@ -89,12 +89,42 @@
             <h3>Java</h3>
             <p>Programmation orientée objet</p>
         </div>
+        <div class="carte-competence">
+            <i class="fab fa-php" style="color:#8993be; font-size: 3em;"></i>
+            <h3>PHP</h3>
+            <p>Développement back-end & scripts web</p>
+        </div>
+        <div class="carte-competence">
+            <i class="fas fa-code" style="color:#3E8ACC; font-size: 3em;"></i>
+            <h3>C</h3>
+            <p>Programmation système et optimisation</p>
+        </div>
+        <div class="carte-competence">
+            <i class="fas fa-code" style="color:#00599C; font-size: 3em;"></i>
+            <h3>C++</h3>
+            <p>Programmation orientée performance et jeux</p>
+        </div>
     </div>
 </section>
 
     <section id="projets" class="section">
         <h2>Mes Projets</h2>
         <div class="grille-projets">
+                                <!-- Projet SAE Semestre 3 -->
+                    <div class="carte-projet principal">
+                        <div class="projet-contenu">
+                            <h3>Développement Plateforme Aidants</h3>
+                            <p class="projet-resume">Développement d'une plateforme pour les aidants familiaux facilitant le maintien à domicile des personnes âgées : suivi médical, administratif et quotidien centralisés.</p>
+                            <div class="projet-tags">
+                                <span class="tag">Web</span>
+                                <span class="tag">Base de données</span>
+                                <span class="tag">Serveur</span>
+                            </div>
+                            <div class="projet-actions">
+                                <a href="#popup-sae" class="lien-projet">Voir le projet</a>
+                            </div>
+                        </div>
+                    </div>
             <!-- Projet Principal - Safe Race -->
             <div class="carte-projet principal">
                 <div class="badge-principal">Projet Principal</div>
@@ -124,10 +154,11 @@
                         <span class="tag">CSS</span>
                     </div>
                     <div class="projet-actions">
-                        <a href="#popup-econocom" class="lien-projet">Voir le projet</a>
+                                <a href="#popup-econocom" class="lien-projet">Voir le projet</a>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -195,7 +226,7 @@
         <div class="popup-content">
             <div class="popup-header">
                 <h2>Safe Race</h2>
-                <a href="#" class="popup-close">&times;</a>
+                <a href="#projets" class="popup-close" aria-label="Fermer la fenêtre">&times;</a>
             </div>
             <div class="popup-body">
                 <div class="projet-detail">
@@ -275,7 +306,7 @@
         <div class="popup-content">
             <div class="popup-header">
                 <h2>Econocom — Adaptation pour élèves de 3ème</h2>
-                <a href="#" class="popup-close">&times;</a>
+                <a href="#projets" class="popup-close" aria-label="Fermer la fenêtre">&times;</a>
             </div>
             <div class="popup-body">
                 <div class="projet-detail">
@@ -328,6 +359,59 @@
                                     <i class="fab fa-css3-alt"></i>
                                     <span>CSS3</span>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup pour SAE Semestre 3 -->
+    <div id="popup-sae" class="popup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h2>SAE Semestre 3 – Plateforme pour aidants familiaux</h2>
+                <a href="#projets" class="popup-close" aria-label="Fermer la fenêtre">&times;</a>
+            </div>
+            <div class="popup-body">
+                <div class="projet-detail">
+                    <p class="projet-soustitre">Plateforme d'accompagnement du grand âge — projet semestriel d'équipe</p>
+
+                    <div class="projet-info">
+                        <div class="projet-description">
+                            <h2>Description du Projet</h2>
+                            <p>Objectif : concevoir et développer, en équipe, une application communicante aidant les aidants familiaux à centraliser les informations utiles au maintien à domicile des personnes âgées (suivi médical, traitements et rendez‑vous, suivi administratif, budget, planning, etc.). L'application doit s'appuyer sur une base de données et un serveur et respecter les bonnes pratiques d'ergonomie et qualité logicielle.</p>
+                        </div>
+
+                        <div class="projet-objectifs">
+                            <h2>Objectifs Principaux</h2>
+                            <ul>
+                                <li>Collecter et formaliser les besoins du client</li>
+                                <li>Développer une application web communicante avec persistance des données</li>
+                                <li>Assurer la qualité logicielle et l'ergonomie des IHM</li>
+                                <li>Documenter et présenter l'avancement à chaque phase</li>
+                            </ul>
+                        </div>
+
+                        <div class="projet-contexte">
+                            <h2>Contexte</h2>
+                            <p>Le projet répond à un enjeu sociétal croissant : accompagner le vieillissement de la population et faciliter le rôle des aidants (familiaux et proches) en proposant un outil centralisé pour le suivi médical, administratif et pratique du quotidien.</p>
+                        </div>
+
+                        <div class="projet-organisation">
+                            <h2>Organisation & Cadre</h2>
+                            <p>Projet réalisé dans le cadre d'un projet académique, découpé en 4 phases avec évaluations : kick-off, expression des besoins, développement et démonstration finale. Travail en équipe (chef de projet, référent technique, référent communication, etc.) et encadrement par des enseignants/coachs.</p>
+                        </div>
+
+                        <div class="projet-technologies">
+                            <h2>Technologies (exemples)</h2>
+                            <div class="technologies-list">
+                                <div class="technologie"><i class="fab fa-html5"></i><span>HTML5</span></div>
+                                <div class="technologie"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+                                <div class="technologie"><i class="fab fa-js"></i><span>JavaScript</span></div>
+                                <div class="technologie"><i class="fas fa-server"></i><span>Serveur (Node/Express, PHP...)</span></div>
+                                <div class="technologie"><i class="fas fa-database"></i><span>Base de données (PostgreSQL/MySQL)</span></div>
                             </div>
                         </div>
                     </div>
