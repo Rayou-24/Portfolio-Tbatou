@@ -27,13 +27,14 @@
     width: 90%;
     max-width: 1000px;
     max-height: 90vh;
-    background: linear-gradient(145deg, var(--darker-bg) 0%, #1f1f1f 100%);
-    border-radius: 10px;
+    background: var(--darker-bg);
+    border-radius: var(--border-radius);
     overflow-y: auto;
     transform: translateY(20px);
     transition: transform 0.4s ease;
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-lg);
     animation: slideIn 0.4s ease forwards;
+    border: var(--glass-border);
 }
 
 @keyframes slideIn {

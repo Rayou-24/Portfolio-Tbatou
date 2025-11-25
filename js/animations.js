@@ -1,73 +1,117 @@
 // Animations optimisées pour le portfolio
 document.addEventListener('DOMContentLoaded', function() {
-    // Animation des sections au défilement avec IntersectionObserver
-    const sections = document.querySelectorAll('.section');
-    const navbar = document.querySelector('nav');
-    
-    // Observer unique pour gérer apparition des sections et l'état de la navbar
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            const el = entry.target;
-            if (el.classList && el.classList.contains('section')) {
-                if (entry.isIntersecting) el.classList.add('visible');
-            }
+    // --- Hamburger Menu ---
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.menu-navigation');
+    const navLinks = document.querySelectorAll('.lien-nav');
 
-            // navbar: si la section d'accueil n'est pas intersectée, ajouter scrolled
-            if (el.id === 'accueil') {
-                if (!entry.isIntersecting) navbar.classList.add('scrolled');
-                else navbar.classList.remove('scrolled');
-            }
+    if (hamburger) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
         });
-    }, { threshold: 0.1, rootMargin: "-100px 0px 0px 0px" });
+    }
 
-    // Appliquer l'observer
-    sections.forEach(section => observer.observe(section));
-
-    // Scrollspy: mettre en surbrillance le lien correspondant à la section visible
-    const navLinks = document.querySelectorAll('.menu-navigation a');
-    const sectionMap = new Map();
     navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href && href.startsWith('#')) {
-            const sec = document.querySelector(href);
-            if (sec) sectionMap.set(sec, link);
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+
+    // --- Typing Effect ---
+    const textElement = document.querySelector('.typing-text');
+    if (textElement) {
+        const textToType = textElement.textContent;
+        textElement.textContent = '';
+        let charIndex = 0;
+
+        function type() {
+            if (charIndex < textToType.length) {
+                textElement.textContent += textToType.charAt(charIndex);
+                charIndex++;
+                setTimeout(type, 100);
+            }
+        }
+        // Start typing after a small delay
+        setTimeout(type, 500);
+    }
+
+    // --- Back to Top Button ---
+    const backToTopBtn = document.querySelector('.back-to-top');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
         }
     });
 
-    const spyObserver = new IntersectionObserver((entries) => {
+    // --- Intersection Observer for Sections & Navbar ---
+    const sections = document.querySelectorAll('.section');
+    const navbar = document.querySelector('nav');
+    const accueilSection = document.querySelector('#accueil');
+    
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            const link = sectionMap.get(entry.target);
-            if (!link) return;
             if (entry.isIntersecting) {
-                navLinks.forEach(l => l.classList.remove('active'));
-                link.classList.add('active');
+                entry.target.classList.add('visible');
             }
         });
-    }, { threshold: 0.45 });
+    }, observerOptions);
 
-    sectionMap.forEach((_, section) => spyObserver.observe(section));
+    sections.forEach(section => observer.observe(section));
 
-    // Les hover des icônes sont gérés en CSS (.carte-competence:hover i)
-    // Empêcher le lien de fermeture de popup (href="#") de scroller en haut de la page.
-    // On retire le fragment de l'URL via history.replaceState pour fermer la popup sans défilement.
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // --- Scrollspy ---
+    const sectionsSpy = document.querySelectorAll('section');
+    const navLinksSpy = document.querySelectorAll('.menu-navigation .lien-nav');
+    
+    const observerSpy = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Active le lien correspondant
+                const id = entry.target.getAttribute('id');
+                navLinksSpy.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + id) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, {
+        rootMargin: "-50% 0px -50% 0px" // Ligne de détection au milieu de l'écran
+    });
+
+    sectionsSpy.forEach(section => observerSpy.observe(section));
+
+    // --- Popup Close Logic ---
     document.querySelectorAll('.popup-close').forEach(function(btn) {
         btn.addEventListener('click', function(e) {
             const href = btn.getAttribute('href');
-            // Si le href est exactement '#', on empêche le comportement par défaut et on supprime le hash
             if (href === '#') {
                 e.preventDefault();
                 history.replaceState(null, '', window.location.pathname + window.location.search);
-            } else {
-                // Sinon on laisse la navigation (ex: href="#projets") fermer la popup via :target
-                // Mais on veut s'assurer que le focus va vers la section projets sans scroller de manière brusque.
-                // On laisse le navigateur naviguer naturellement vers l'ancre.
             }
-
-            // Pour l'accessibilité: tenter de déplacer le focus vers la section 'projets' (prévenir le scroll)
+            
             const projects = document.getElementById('projets');
             if (projects) {
                 if (!projects.hasAttribute('tabindex')) projects.setAttribute('tabindex', '-1');
-                // focus différé pour laisser la navigation terminer
                 setTimeout(() => projects.focus({ preventScroll: true }), 10);
             }
         });
