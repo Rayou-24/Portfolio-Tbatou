@@ -139,29 +139,20 @@ body::before {
 nav {
     position: fixed;
     width: 100%;
-    background: rgba(15, 32, 39, 0.8);
-    padding: 1rem 0;
-    z-index: 1000;
-    box-shadow: var(--shadow-md);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all var(--transition-normal);
-}
-
-/* Navigation */
-nav {
-    position: fixed;
-    width: 100%;
     top: 0;
     z-index: 1000;
     padding: 1.5rem 0;
     transition: all var(--transition-normal);
+    background: rgba(15, 23, 42, 0.05); /* Presque totalement transparent */
+    backdrop-filter: blur(8px); /* Léger flou initial */
+    -webkit-backdrop-filter: blur(8px);
 }
 
 nav.scrolled {
     padding: 1rem 0;
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(12px);
+    background: rgba(15, 23, 42, 0.65); /* Transparence plus marquée au scroll */
+    backdrop-filter: blur(16px); /* Flou intense (Glassmorphism) */
+    -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     box-shadow: var(--shadow-md);
 }
